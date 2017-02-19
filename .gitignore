@@ -4,3 +4,9 @@ typings
 .DS_Store
 /.git
 /npm*
+
+/Angular2Fundamentals/**/*.js
+/Angular2Fundamentals/**/*.d.ts
+/Angular2Fundamentals/**/*.map
+**/typings/**
+
