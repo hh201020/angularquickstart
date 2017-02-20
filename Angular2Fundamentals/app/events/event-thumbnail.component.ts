@@ -10,7 +10,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
       <div>Price: \${{event.price}}</div>
       <div>
         <span>Location: {{event.location.address}}</span>
-        <span>&nbsp:</span>
+        <span>&nbsp;</span>
         <span>{{event.location.city}}, {{event.location.country}}</span>
       </div>
       <button class="btn btn-primary" (click)="handleClickMe()">Click Me!</button>
@@ -21,7 +21,7 @@ export class EventThumbnailComponent {
   @Input() event:any
   @Output() eventClick = new EventEmitter()
   someProperty: any = "some property"
-  
+
   handleClickMe() {
     console.log('clicked!');
     this.eventClick.emit('from output: ' + this.event.name);
