@@ -11,6 +11,7 @@ import { Component } from '@angular/core'
       [event]="event1"
       (eventClick)="handleEventClicked($event)" >
     </event-thumbnail>
+    <h3>{{thumbnail.someProperty}}</h3>
     <button class="btn btn-primary" (click)="thumbnail.logFoo()">Log foo</button>
   </div>
   `
