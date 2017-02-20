@@ -23,6 +23,10 @@ export class EventThumbnailComponent {
 
   handleClickMe() {
     console.log('clicked!');
-    this.eventClick.emit('from: ' + this.event.name);
+    this.eventClick.emit('from output: ' + this.event.name);
+  }
+
+  logFoo(){
+    console.log('from template variable: ' + this.event.name);
   }
 }
