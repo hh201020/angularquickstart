@@ -9,12 +9,9 @@ import { Component } from '@angular/core'
     <div class="row">
       <div *ngFor="let event of events" class="col-md-5">
         <event-thumbnail 
-          #thumbnail
           *ngFor="let event of events" [event]="event"
           (eventClick)="handleEventClicked($event)" >
         </event-thumbnail>
-        <h3>{{thumbnail.someProperty}}</h3>
-        <button class="btn btn-primary" (click)="thumbnail.logFoo()">Log foo</button>
       </div>
     </div>
   </div>
