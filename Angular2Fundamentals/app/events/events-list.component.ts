@@ -10,8 +10,8 @@ import { EventService } from './shared/event.service'
     <div class="row">
       <div *ngFor="let event of events" class="col-md-5">
         <event-thumbnail 
-          *ngFor="let event of events" [event]="event"
-          (eventClick)="handleEventClicked($event)" >
+          *ngFor="let event of events" 
+          [event]="event" >
         </event-thumbnail>
       </div>
     </div>
