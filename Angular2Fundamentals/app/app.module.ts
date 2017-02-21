@@ -4,6 +4,7 @@ import { RouterModule, ActivatedRouteSnapshot } from '@angular/router'
 
 import { EventsAppComponent } from './events-app.component'
 import { EventsListComponent } from './events/events-list.component'
+import { CreateEventComponent } from './events/create-event.component'
 import { EventThumbnailComponent } from './events/event-thumbnail.component'
 import { NavBarComponent } from './nav/navbar.component'
 import { EventService } from './events/shared/event.service'
@@ -20,8 +21,8 @@ import { appRoutes } from './routes'
     EventsAppComponent,
     EventsListComponent,
     EventThumbnailComponent,
-        EventDetailsComponent,
-
+    EventDetailsComponent,
+    CreateEventComponent,
     NavBarComponent
   ],
   providers: [EventService, ToastrService],
