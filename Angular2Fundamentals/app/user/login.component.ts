@@ -8,8 +8,15 @@ import { Router } from '@angular/router'
   `]
 })
 export class LoginComponent {
-  constructor(private router:Router) {
+  constructor( private router:Router) {
 
   }
 
+  login(formValues) {
+    console.log(formValues);
+  }
+
+  cancel() {
+    this.router.navigate(['events'])
+  }
 }
