@@ -12,7 +12,6 @@ import { IEvent } from './shared/event.model'
     <div class="row">
       <div *ngFor="let event of events" class="col-md-5">
         <event-thumbnail 
-          *ngFor="let event of events" 
           (click)="handleThumbnailClick(event.name)" 
           [event]="event" >
         </event-thumbnail>
