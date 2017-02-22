@@ -13,6 +13,7 @@ import { IEvent, ISession } from '../shared/event.model'
 export class EventDetailsComponent {
   event:IEvent
   addMode:boolean
+  filterBy: String = 'all'
 
   constructor(private eventService:EventService, private route:ActivatedRoute) {
 
