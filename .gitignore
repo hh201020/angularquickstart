@@ -5,8 +5,8 @@ typings
 /.git
 /npm*
 
-/Angular2Fundamentals/**/*.js
-/Angular2Fundamentals/**/*.d.ts
-/Angular2Fundamentals/**/*.map
+/Angular2Fundamentals/app/**/*.js
+/Angular2Fundamentals/app/**/*.d.ts
+/Angular2Fundamentals/app/**/*.map
 **/typings/**
 
