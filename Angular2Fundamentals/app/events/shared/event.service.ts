@@ -28,11 +28,6 @@ export class EventService {
       return response.json();
     }).catch(this.handleError);
   }
-
-  updateEvent(event) {
-    let index = EVENTS.findIndex(x => x.id = event.id)
-    EVENTS[index] = event
-  }
   
   searchSessions(searchTerm: string) {
     var term = searchTerm.toLocaleLowerCase();
