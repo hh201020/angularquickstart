@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ISession } from '../shared/event.model';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Subject, Observable } from 'rxjs/RX';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class VoterService {
