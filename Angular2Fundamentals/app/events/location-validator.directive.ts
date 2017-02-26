@@ -15,7 +15,7 @@ export class LocationValidator implements Validator {
     if((addressControl && addressControl.value && cityControl && cityControl.value && countryControl && countryControl.value) || (onlineUrlControl && onlineUrlControl.value)) {
       return null;
     } else {
-      return {validateLocation: false}
+      return {validateLocation: false};
     }
   }
 } 

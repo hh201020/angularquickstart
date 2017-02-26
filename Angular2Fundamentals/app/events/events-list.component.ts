@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { EventService } from './shared/event.service'
-import { ActivatedRoute } from '@angular/router'
-import { IEvent } from './shared/event.model'
+import { Component, OnInit } from '@angular/core';
+import { EventService } from './shared/event.service';
+import { ActivatedRoute } from '@angular/router';
+import { IEvent } from './shared/event.model';
 
 @Component({
   template: `
@@ -19,13 +19,13 @@ import { IEvent } from './shared/event.model'
   `
 })
 export class EventsListComponent  implements OnInit {
-  events:IEvent[]
+  events:IEvent[];
 
   constructor(private eventService: EventService, private route:ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.events = this.route.snapshot.data['events']  // this 'events' matches the resolve: {events:EventListResolver} in route.ts
+    this.events = this.route.snapshot.data['events'];  // this 'events' matches the resolve: {events:EventListResolver} in route.ts
                                                       // which gives getEvents from EventListResolver.resolve()
   }
 

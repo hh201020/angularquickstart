@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, ActivatedRouteSnapshot } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,11 +21,11 @@ import {
 } from './events/index';
 
 import { JQ_TOKEN,
-  TOASTR_TOKEN, 
+  TOASTR_TOKEN,
   Toastr,
   CollapsibleWellComponent,
   SimpleModalComponent,
-  ModalTriggerDirective 
+  ModalTriggerDirective
 } from './common/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -34,8 +34,8 @@ import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 
-declare let toastr : Toastr;
-declare let jQuery : Object;
+declare let toastr: Toastr;
+declare let jQuery: Object;
 
 @NgModule({
   imports: [
@@ -68,7 +68,7 @@ declare let jQuery : Object;
     { provide: JQ_TOKEN, useValue: jQuery },
     EventResolver,
     EventListResolver,
-    VoterService,    
+    VoterService,
     AuthService,
     {
       provide: 'canDeactivateCreateEvent',
