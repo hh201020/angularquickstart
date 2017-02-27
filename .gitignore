@@ -5,10 +5,15 @@ node_modules
 /.git
 /npm*
 
+**/typings/**
+
+/PS_AngularGettingStarted/**/*.js
+/PS_AngularGettingStarted/**/*.d.ts
+/PS_AngularGettingStarted/**/*.map
+
 /PS_Angular2GettingStarted/**/*.js
 /PS_Angular2GettingStarted/**/*.d.ts
 /PS_Angular2GettingStarted/**/*.map
-**/typings/**
 
 /Angular2Fundamentals/**/*.js
 /Angular2Fundamentals/**/*.d.ts
