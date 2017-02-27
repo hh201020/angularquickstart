@@ -1,0 +1,23 @@
+{
+  "name": "PS_BuildAngualrNodeMEAN",
+  "version": "0.0.0",
+  "authors": [
+    "Jerry Hu <hh201020@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~3.1.1",
+    "toastr": "~2.1.3",
+    "angular": "~1.6.2",
+    "angular-resource": "~1.6.2",
+    "angular-route": "~1.6.2"
+  }
+}

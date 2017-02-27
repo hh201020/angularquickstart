@@ -13,3 +13,5 @@ node_modules
 /Angular2Fundamentals/**/*.js
 /Angular2Fundamentals/**/*.d.ts
 /Angular2Fundamentals/**/*.map
+
+/PS_BuildAngularNodeMEAN/public/vendor
