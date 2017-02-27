@@ -1,6 +1,15 @@
-/node_modules
+node_modules
 /typings
 *.map
 .DS_Store
 /.git
 /npm*
+
+/PS_Angular2GettingStarted/**/*.js
+/PS_Angular2GettingStarted/**/*.d.ts
+/PS_Angular2GettingStarted/**/*.map
+**/typings/**
+
+/Angular2Fundamentals/**/*.js
+/Angular2Fundamentals/**/*.d.ts
+/Angular2Fundamentals/**/*.map
