@@ -1,4 +1,5 @@
 const electron = require('electron')
+const images = require('./images')
 
 const { app, BrowserWindow, ipcMain: ipc, Menu } = electron
 
@@ -12,6 +13,7 @@ app.on('ready', _ => {
   })
 
   mainWindow.loadURL(`file://${__dirname}/capture.html`)
+  images.mkdir(images.getPicturesDir(app))
 
   mainWindow.webContents.openDevTools()
 
@@ -19,4 +21,10 @@ app.on('ready', _ => {
     mainWindow = null
   })
 
+})
+
+ipc.on('image-captured', (evt, contents) => {
+  images.save(images.getPicturesDir(app), contents, (err, imgPath) => {
+    images.cache(imgPath)
+  })
 })
