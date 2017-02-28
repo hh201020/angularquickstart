@@ -1,19 +1,38 @@
-const electron =require('electron');
+const electron = require('electron')
 
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const countdown = require('./countdown')
 
-let mainWindow;
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
+const ipc = electron.ipcMain
 
-app.on('ready', _=> {
-  mainWindow = new BrowserWindow({
-    height: 400,
-    width: 400
-  });
-    mainWindow.loadURL(`file://${__dirname}/countdown.html`)
+const windows = []
 
-  mainWindow.on('close', _=> {
-    console.log('closed!');
-    mainWindow = null;
-  })  
+app.on('ready', _ => {
+  [1, 2, 3].forEach(i => {
+    let win = new BrowserWindow({
+      height: 400,
+      width: 400
+    })
+    win.loadURL(`file://${__dirname}/countdown.html`)
+    win.on('closed', _ => {
+      win = null
+    })
+    windows.push(win)
+  })
+})
+
+ipc.on('countdown-start', _ => {
+  console.log('starting!')
+
+  countdown(count => {
+    console.log("count", count)
+    windows.forEach(win => {
+      win.webContents.send('countdown', count);
+      if(count == 0) {
+        console.log("count", count)
+        win.hide();
+      }
+    })
+  })
 })
