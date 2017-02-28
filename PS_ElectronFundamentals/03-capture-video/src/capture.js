@@ -68,3 +68,11 @@ window.addEventListener('DOMContentLoaded', _ => {
 ipc.on('image-removed', (evt, index) => {
   document.getElementById('photos').removeChild(Array.from(document.querySelectorAll('.photo'))[index])
 })
+
+ipc.on('effect-cycle', evt => {
+  effects.cycle(seriously, videoSrc, canvasTarget)
+})
+
+ipc.on('effect-choose', (evt, effectName) => {
+  effects.choose(seriously, videoSrc, canvasTarget, effectName)
+})
