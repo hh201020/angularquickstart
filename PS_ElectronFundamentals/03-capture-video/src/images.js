@@ -30,6 +30,15 @@ exports.mkdir = picturesPath => {
   })
 }
 
+exports.rm = (index, done) => {
+  fs.unlink(images[index], err => {
+    if(err) return logErr(err)
+
+    images.splice(index, 1)
+    done()
+  })
+}
+
 exports.cache = imgPath => {
   images = images.concat([imgPath])
   return images

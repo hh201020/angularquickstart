@@ -54,3 +54,7 @@ window.addEventListener('DOMContentLoaded', _ => {
     }
   })
 })
+
+ipc.on('image-removed', (evt, index) => {
+  document.getElementById('photos').removeChild(Array.from(document.querySelectorAll('.photo'))[index])
+})
