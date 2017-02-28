@@ -29,10 +29,14 @@ ipc.on('countdown-start', _ => {
     console.log("count", count)
     windows.forEach(win => {
       win.webContents.send('countdown', count);
-      if(count == 0) {
+      if (count == 0) {
         console.log("count", count)
-        win.hide();
+        //win.hide();
       }
     })
+    if (count == 0) {
+      console.log("main count ", count)
+      app.quit();
+    }
   })
 })
