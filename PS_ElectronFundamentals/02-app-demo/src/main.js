@@ -1,40 +1,22 @@
-
-'use strict'
-
 const electron = require('electron')
+const path = require('path')
 
 const app = electron.app
-const BrowserWindow = electron.BrowserWindow
 const Menu = electron.Menu
-const name = electron.app.getName()
+const Tray = electron.Tray
 
-let template = [
-  {
-    label: name,
-    submenu: [{
-      label: `About ${name}`,
-      role: 'about',
-      click: _ => {
-        console.log('click about')
-      }
-    }, {
-      type: 'separator'
-    }, {
+app.on('ready', _ => {
+  const tray = new Tray(path.join('src', 'trayIcon.png'))
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Wow',
+      click: _ => console.log('wow')
+    },
+    {
       label: 'Quit',
-      accelerator: 'Cmd+Q',
-      click: _ => { app.quit() }            // function () { app.quit() }
-    }]
-  },
-  {
-    label: 'Another',
-    submenu: [{
-      label: 'Sweet'
-    }]
-  }
-]
-
-app.on('ready', function () {
-  new BrowserWindow()
-  const menu = Menu.buildFromTemplate(template)
-  Menu.setApplicationMenu(menu)
+      click: _ => app.quit()
+    }
+  ])
+  tray.setToolTip('Woweeee')
+  tray.setContextMenu(contextMenu)
 })
