@@ -2,6 +2,7 @@ const electron = require('electron')
 
 const countdown = require('./countdown')
 const video = require('./video')
+const flash = require('./flash')
 
 const { ipcRenderer: ipc, shell, remote } = electron
 
@@ -33,6 +34,7 @@ window.addEventListener('DOMContentLoaded', _ => {
 
   recordEl.addEventListener('click', _ => {
     countdown.start(counterEl, 3, _ => {
+      flash(flashEl)
       const bytes = video.captureBytes(videoEl, ctx, canvasEl)
       ipc.send('image-captured', bytes)
       photosEl.appendChild(formatImgTag(document, bytes))
