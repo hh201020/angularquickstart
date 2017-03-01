@@ -5,12 +5,15 @@
   "description": "Photobooth app",
   "main": "src/main.js",
   "scripts": {
+    "build": "rimraf Photobombth-* && electron-packager . --platform=darwin,win32,linux --arch=x64 --icon=app",
     "start": "electron ."
   },
   "keywords": [],
   "author": "jaketrent",
   "license": "MIT",
   "devDependencies": {
-    "electron-prebuilt": "^1.4.13"
+    "electron-packager": "^8.5.2",
+    "electron-prebuilt": "^1.4.13",
+    "rimraf": "^2.6.1"
   }
 }
