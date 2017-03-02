@@ -112,3 +112,23 @@ body {
 #chapter-nav a:hover {
   color: #999900;
 }
+#search input {
+  width: 90%;
+  font-size: 2.2rem;
+  padding:12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px
+}
+#search-results h2 > a{
+  text-decoration: none;
+  color: #366993;
+}
+#search-results {
+  overflow-y: scroll;
+}
+#search-results p {
+  line-height: 1.4;
+  font-style: italic;
+  color: #999;
+  font-family: Georgia;
+}

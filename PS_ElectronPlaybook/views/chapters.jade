@@ -13,18 +13,20 @@ div(id="chapter")
   p(id="content")
   
 script.
-  var renderMarkdownPage = function(title){
-    var MarkdownPage = require("./lib/markdown_page");
-    var page = new MarkdownPage(title);
-    $("#title").html(page.title);
-    $("#content").html(page.body);
-  }
+  var app = require("./lib/app");
+  var showChapter = function(id){
+    app.emit("chapter-selected", id);
+  };
+  app.on("chapter-rendered", function(chapter){
+    $("#title").html(chapter.title);
+    $("#content").html(chapter.body);
+  });
   $(function(){
-    renderMarkdownPage("01-history_of_pi");
+    showChapter("01-history_of_pi");
     $(".chapter-link").on("click", function(ev){
       ev.preventDefault();
-      var id = this.id;
-      renderMarkdownPage(id);
+      showChapter(this.id);
     });
   });
+
   
