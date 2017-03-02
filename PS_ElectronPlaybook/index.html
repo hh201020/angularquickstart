@@ -30,6 +30,11 @@
 
 <script>
   var app = require("./lib/app");
+  var fs = require("fs-extra");
+  var path = require("path");
+  var remote = require('remote');
+  var dialog = remote.require("dialog");
+
   app.on("rendered", function(rendered){
     $("#main").html(rendered);
   });
@@ -37,11 +42,32 @@
     app.emit("view-selected", view);
   }
   $(function(){
-    showContent("search");
+    showContent("home");
     $(".nav").on("click", function(ev){
       ev.preventDefault();
       showContent(this.id);
     });
   });
+
+  var wireEvents = function(){
+    $(".downloadable").on("click", function(ev){
+      var sourceFile = $(ev.currentTarget).data("video");
+      dialog.showSaveDialog({defaultPath: sourceFile}, function(fileName){
+        if(fileName){
+          //locate our download on disk
+          var source = path.join(__dirname, "downloads", sourceFile);
+          //copy it over
+          fs.copySync(source, fileName);
+        }
+      });
+    });
+    $("#main a").not(".internal").on("click", function(ev){
+      ev.preventDefault();
+      var url = $(this).attr("href");
+      var shell = require("shell");
+      shell.openExternal(url);
+    });
+  }
+
 </script>
 </html>

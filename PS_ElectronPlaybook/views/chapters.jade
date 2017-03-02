@@ -7,6 +7,8 @@ div(id = "chapter-nav")
       a(href="#", id="02-the-origins-of-beer" class="chapter-link") The Origins of Beer
     li 
       a(href="#", id="03-phi_golden_ratio" class="chapter-link") Phi, The Golden Ratio
+    li 
+      a(href="#", id="04-surfing-munich" class="chapter-link") Surfing in Munich
 
 div(id="chapter")
   h2(id="title")
@@ -20,6 +22,7 @@ script.
   app.on("chapter-rendered", function(chapter){
     $("#title").html(chapter.title);
     $("#content").html(chapter.body);
+    wireEvents();
   });
   $(function(){
     showChapter("01-history_of_pi");
