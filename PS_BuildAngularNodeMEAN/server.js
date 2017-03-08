@@ -4,6 +4,7 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose');
 
+// set NODE_ENV on heroku: heroku config:set NODE_ENV=production
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var app = express();
