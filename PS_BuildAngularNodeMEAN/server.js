@@ -15,7 +15,7 @@ function compile(str, path) {
 app.set('views', __dirname + '/server/views');
 app.set('view engine', 'jade');
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(stylus.middleware(
   {
@@ -25,14 +25,19 @@ app.use(stylus.middleware(
 ));
 app.use(express.static(__dirname + '/public'));
 
-mongoose.connect('mongodb://localhost:27017/multivision');
+if (env == 'development') {
+  mongoose.connect('mongodb://localhost:27017/multivision');
+} else {
+  mongoose.connect('mongodb://jeames:multivision@ds123370.mlab.com:23370/multivision');
+}
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error...'));
 db.once('open', function callback() {
   console.log('multivision db opened');
 });
 
-var messageSchema = new mongoose.Schema({message: String});
+var messageSchema = new mongoose.Schema({ message: String });
 var Message = mongoose.model('Message', messageSchema);
 
 // var inputMessage = new Message({
@@ -45,8 +50,8 @@ var Message = mongoose.model('Message', messageSchema);
 // });
 
 var mongoMessage;
-Message.findOne().exec(function(err, messageDoc) {
-  if( messageDoc != undefined && messageDoc.message != undefined ){
+Message.findOne().exec(function (err, messageDoc) {
+  if (messageDoc != undefined && messageDoc.message != undefined) {
     mongoMessage = messageDoc.message;
     console.log('get mongoose testing message: ' + mongoMessage);
   } else {
@@ -54,16 +59,16 @@ Message.findOne().exec(function(err, messageDoc) {
   }
 });
 
-app.get('/partials/:partialPath', function(req, res) {
-    res.render('partials/' + req.params.partialPath);
+app.get('/partials/:partialPath', function (req, res) {
+  res.render('partials/' + req.params.partialPath);
 });
 
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
   res.render('index', {
     mongoMessage: mongoMessage
   });
 });
 
-var port = 3030;
+var port = process.env.PORT || 3030;
 app.listen(port);
 console.log('Listening on port ' + port + '...');
